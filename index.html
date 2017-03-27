@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>真心话大冒险</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+	</head>
+	<body>
+		<div id="all" class="all">		
+			<div id="mingzi">
+				<input type="text" name="userName" id="userName" value="请输入你的名字" />
+			</div>
+			<div id="star">
+				<button id="btn_star">STAR</button>
+			</div>
+		</div>
+		<div id="cuowu">
+			<div id="resent">
+				<input type="text" name="reset" id="reset1" value="找死么？" />
+			</div>
+			<div id="tuozou">
+				<button id="btn_tuo">再来一次</button>
+			</div>
+		</div>
+		<div id="zhanshi">
+			<div id="pictuer" class="picture">
+				<img src="./images/show.jpg" id="pictuer_img"/>
+			</div>
+			<div id="wenzi">
+				
+			</div>
+			<div id="show"></div>
+			<div id="tuozou2">
+				<button id="btn_tuo2">再来一次</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var arr=[{title:"你的初恋是几岁0?",imgSrc:"./images/bg1.jpg"},
+			{title:"你的初恋是几岁?",imgSrc:"./images/bg2.jpg"},
+			{title:"你的初恋对象是谁1?",imgSrc:"./images/bg3.jpg"},
+			{title:"你的初恋对象是谁2?",imgSrc:"./images/bg4.jpg"},
+			{title:"你的初恋对象是谁3?",imgSrc:"./images/bg5.jpg"},
+			{title:"你的初恋对象是谁4?",imgSrc:"./images/bg6.jpg"},
+			{title:"你的初恋对象是谁5?",imgSrc:"./images/bg7.jpg"},
+			{title:"你的初恋对象是谁6?",imgSrc:"./images/bg8.jpg"},
+			{title:"你的初恋对象是谁7?",imgSrc:"./images/bg9.jpg"},
+			{title:"你的初恋对象是谁8?",imgSrc:"./images/bg10.jpg"}];
+			
+			window.onload = function(){
+				var userName = document.getElementById("userName");
+				var btn_star = document.getElementById("btn_star");
+				var reset1 = document.getElementById("reset1");
+				var btn_tuo = document.getElementById("btn_tuo");
+				var pictuer = document.getElementById("pictuer");
+				var show = document.getElementById("show");
+				var btn_tuo2 = document.getElementById("btn_tuo2");
+				var all = document.getElementById("all");
+				var cuowu = document.getElementById("cuowu");
+				var zhanshi = document.getElementById("zhanshi");
+				var wenzi = document.getElementById("wenzi");
+				var pictuer_img = document.getElementById("pictuer_img");
+				all.style.left = "0%";
+				btn_tuo.addEventListener("click",function(){
+					all.style.left = "0%";
+					zhanshi.style.top = "100%";
+					cuowu.style.top = "100%";
+				})
+				btn_tuo2.addEventListener("click",function(){
+					all.style.left = "0%";
+					zhanshi.style.top = "100%";
+					cuowu.style.top = "100%";
+				})
+				userName.addEventListener("focus",function(){
+					userName.value = "";
+				})
+				
+				btn_star.addEventListener("click",function(){
+					var randoNum1  = parseInt(Math.random()*arr.length);
+					if(userName.value==""||userName.value=="请输入你的名字"){
+						all.style.left = "100%";
+						cuowu.style.top = "0%";
+						zhanshi.style.top = "100%";
+					}else{
+						all.style.left = "100%";
+						zhanshi.style.top = "0%";
+						cuowu.style.top = "100%";
+					}
+					wenzi.innerHTML = userName.value+"："+arr[randoNum1].title;
+					pictuer_img.src = arr[randoNum1].imgSrc;
+				})
+			}	
+		</script>
+	</body>
+</html>
